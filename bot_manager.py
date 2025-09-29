@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher, Router
 from aiogram.filters import Command
-from aiogram.types import Message, BufferedInputFile  # Правильный импорт
+from aiogram.types import Message, BufferedInputFile
 from database import Database
 import matplotlib.pyplot as plt
 import io
@@ -93,7 +93,6 @@ class BotManager:
                 plt.savefig(buf, format="png")
                 buf.seek(0)
                 
-                # ИСПРАВЛЕНО: используем BufferedInputFile правильно
                 input_file = BufferedInputFile(buf.getvalue(), filename="stats.png")
                 await message.answer_photo(input_file, caption=f"Статистика за {period}")
                 
